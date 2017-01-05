@@ -285,31 +285,31 @@
         </a>
         <ul class="sub-menu">
           <li>
-            <a href="table_basic.html">
+            <a href="/table/basic">
             Basic Datatables</a>
           </li>
           <li>
-            <a href="table_tree.html">
+            <a href="/table/tree">
             Tree Datatables</a>
           </li>
           <li>
-            <a href="table_responsive.html">
+            <a href="/table/responsive">
             Responsive Datatables</a>
           </li>
           <li>
-            <a href="table_managed.html">
+            <a href="/table/managed">
             Managed Datatables</a>
           </li>
           <li>
-            <a href="table_editable.html">
+            <a href="/table/editable">
             Editable Datatables</a>
           </li>
           <li>
-            <a href="table_advanced.html">
+            <a href="/table/advanced">
             Advanced Datatables</a>
           </li>
           <li>
-            <a href="table_ajax.html">
+            <a href="/table/ajax">
             Ajax Datatables</a>
           </li>
         </ul>

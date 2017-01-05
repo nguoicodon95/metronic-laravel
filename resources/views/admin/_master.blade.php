@@ -13,6 +13,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport"/>
 	<meta content="" name="description"/>
 	<meta content="" name="author"/>
+	<meta name="csrf-token" content="{{ csrf_token() }}"/>
 	<!-- BEGIN GLOBAL MANDATORY STYLES -->
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
 	<link href="/_admin_assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
@@ -23,14 +24,6 @@
 	<!-- END GLOBAL MANDATORY STYLES -->
 	<!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
 	@stack('css_import')
-	<link href="/_admin_assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css"/>
-	<link href="/_admin_assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css"/>
-	<link href="/_admin_assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css"/>
-	<link href="/_admin_assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css">
-	<!-- END PAGE LEVEL PLUGIN STYLES -->
-	<!-- BEGIN PAGE STYLES -->
-	<link href="/_admin_assets/admin/pages/css/tasks.css" rel="stylesheet" type="text/css"/>
-	<!-- END PAGE STYLES -->
 	<!-- BEGIN THEME STYLES -->
 	<!-- DOC: To use 'rounded corners' style just load 'components-rounded.css' stylesheet instead of 'components.css' in the below style tag -->
 	<link href="/_admin_assets/global/css/components-rounded.css" id="style_components" rel="stylesheet" type="text/css"/>
@@ -71,7 +64,7 @@
 			<div class="page-head">
 				<!-- BEGIN PAGE TITLE -->
 				<div class="page-title">
-					<h1>Dashboard <small>statistics & reports</small></h1>
+					<h1>Name <small>note</small></h1>
 				</div>
 				<!-- END PAGE TITLE -->
 				<!-- BEGIN PAGE TOOLBAR -->
@@ -113,32 +106,21 @@
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 @stack('js_import')
-<script src="/_admin_assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
-<script src="/_admin_assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
-<script src="/_admin_assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
-<script src="/_admin_assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
-<script src="/_admin_assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
-<script src="/_admin_assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
-<script src="/_admin_assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
-<!-- IMPORTANT! fullcalendar depends on jquery-ui.min.js for drag & drop support -->
-<script src="/_admin_assets/global/plugins/morris/morris.min.js" type="text/javascript"></script>
-<script src="/_admin_assets/global/plugins/morris/raphael-min.js" type="text/javascript"></script>
-<script src="/_admin_assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
-<!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="/_admin_assets/global/scripts/metronic.js" type="text/javascript"></script>
 <script src="/_admin_assets/admin/layout4/scripts/layout.js" type="text/javascript"></script>
 <script src="/_admin_assets/admin/layout4/scripts/demo.js" type="text/javascript"></script>
-<script src="/_admin_assets/admin/pages/scripts/index3.js" type="text/javascript"></script>
-<script src="/_admin_assets/admin/pages/scripts/tasks.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
 	jQuery(document).ready(function() {
 		 Metronic.init(); // init metronic core componets
 		 Layout.init(); // init layout
 		 Demo.init(); // init demo features
-		 Index.init(); // init index page
-		 Tasks.initDashboardWidget(); // init tash dashboard widget
+	});
+	$.ajaxSetup({
+		headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		}
 	});
 </script>
 @stack('script')

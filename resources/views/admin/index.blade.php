@@ -1,5 +1,19 @@
 @extends('admin._master')
 
+@push('css_import')
+	<link href="/_admin_assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css"/>
+	<link href="/_admin_assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css"/>
+	<link href="/_admin_assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css"/>
+	<link href="/_admin_assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css">
+	<!-- END PAGE LEVEL PLUGIN STYLES -->
+	<!-- BEGIN PAGE STYLES -->
+	<link href="/_admin_assets/admin/pages/css/tasks.css" rel="stylesheet" type="text/css"/>
+	<!-- END PAGE STYLES -->
+@endpush
+
+@push('style')
+@endpush
+
 @section('class_body', '') {{-- Luôn có 1 dấu cách sau thi thêm --}}
 
 @section('content')
@@ -1564,3 +1578,30 @@
 	</div>
 </div>
 @endsection
+
+@push('js_import')
+	<script src="/_admin_assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
+	<script src="/_admin_assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
+	<script src="/_admin_assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
+	<script src="/_admin_assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
+	<script src="/_admin_assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
+	<script src="/_admin_assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
+	<script src="/_admin_assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
+	<!-- IMPORTANT! fullcalendar depends on jquery-ui.min.js for drag & drop support -->
+	<script src="/_admin_assets/global/plugins/morris/morris.min.js" type="text/javascript"></script>
+	<script src="/_admin_assets/global/plugins/morris/raphael-min.js" type="text/javascript"></script>
+	<script src="/_admin_assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+	<!-- END PAGE LEVEL PLUGINS -->
+	<!-- PAGE LEVEL SCRIPTS -->
+	<script src="/_admin_assets/admin/pages/scripts/index3.js" type="text/javascript"></script>
+	<script src="/_admin_assets/admin/pages/scripts/tasks.js" type="text/javascript"></script>
+@endpush
+
+@push('script')
+<script>
+	jQuery(document).ready(function() {
+		 Index.init();
+		 Tasks.initDashboardWidget();
+	});
+</script>
+@endpush
